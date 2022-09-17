@@ -1,0 +1,40 @@
+# Project: FINAL
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = COMMERCIAL.o EMPLOYE.o main().o PERSONNEL.o RESPONSABLE.o
+LINKOBJ  = COMMERCIAL.o EMPLOYE.o main().o PERSONNEL.o RESPONSABLE.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = FINAL.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+COMMERCIAL.o: COMMERCIAL.cpp
+	$(CPP) -c COMMERCIAL.cpp -o COMMERCIAL.o $(CXXFLAGS)
+
+EMPLOYE.o: EMPLOYE.cpp
+	$(CPP) -c EMPLOYE.cpp -o EMPLOYE.o $(CXXFLAGS)
+
+main().o: main().cpp
+	$(CPP) -c main().cpp -o main().o $(CXXFLAGS)
+
+PERSONNEL.o: PERSONNEL.cpp
+	$(CPP) -c PERSONNEL.cpp -o PERSONNEL.o $(CXXFLAGS)
+
+RESPONSABLE.o: RESPONSABLE.cpp
+	$(CPP) -c RESPONSABLE.cpp -o RESPONSABLE.o $(CXXFLAGS)
